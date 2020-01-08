@@ -1,6 +1,6 @@
 {
   "name": "image-common-color",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Library to grab the common colors from an image.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -15,6 +15,13 @@
     "create-link": "yarn link && cd example && yarn link 'image-common-color'",
     "start": "yarn build && cd example && yarn start"
   },
+  "keywords": [
+    "image",
+    "color",
+    "colour",
+    "common",
+    "primary"
+  ],
   "author": "Dimitri Adamou",
   "license": "ISC",
   "devDependencies": {
