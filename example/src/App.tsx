@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import ImagePrimaryColor from 'image-primary-color';
+import ImageCommonColor from 'image-common-color';
 
 const App: React.FC = () => {
 
@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
 
 
-    ImagePrimaryColor(e.target.files[0]).then(
+    ImageCommonColor(e.target.files[0]).then(
       (results) => setColorList(results)
     ).catch(
       (msg) => {

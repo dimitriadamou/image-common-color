@@ -1,6 +1,6 @@
 import pad from 'pad-left';
 
-export interface PrimaryColorInterface
+export interface CommonColorInterface
 {
     /**
      * @description Sets the maximum width for ratio-resize for performance gains.
@@ -21,7 +21,7 @@ export interface PrimaryColorInterface
     clamp: number
 
     /**
-     * @description Limit how many popular colors we want to return.
+     * @description Limit how many common colors we want to return.
      * @default 10
      */
     colorChoices: number
@@ -39,7 +39,7 @@ export interface PrimaryColorInterface
     rgbCeil: number
 }
 
-const defaultOptions : PrimaryColorInterface = {
+const defaultOptions : CommonColorInterface = {
     maxWidth: 600,
     maxHeight: 600,
     clamp: 16,
@@ -100,7 +100,7 @@ function CalculateImageDimensions(img: HTMLImageElement, maxWidth: number, maxHe
     return [width, height];
 }
 
-export default function PrimaryColor(file: File, options = defaultOptions) : Promise<string[]> {
+export default function CommonColor(file: File, options = defaultOptions) : Promise<string[]> {
     return new Promise( async (resolve, reject) => {
 
         const img = document.createElement("img");
@@ -143,31 +143,31 @@ export default function PrimaryColor(file: File, options = defaultOptions) : Pro
                 
             }
 
-            let popularList = new Array(options.colorChoices);
-            popularList.fill(0, 0, options.colorChoices);
+            let commonList = new Array(options.colorChoices);
+            commonList.fill(0, 0, options.colorChoices);
             let max = 0;
             //can definitely sort this better.
             //will re-write later.
             for(let x in rgbComponent)
             {
-                for(let y in popularList)
+                for(let y in commonList)
                 {
-                    if(!rgbComponent[popularList[y]])
+                    if(!rgbComponent[commonList[y]])
                     {
-                        popularList[y] = x;
+                        commonList[y] = x;
                         break;
                     }
                     
-                    max = Math.max(rgbComponent[popularList[y]], rgbComponent[x]);
+                    max = Math.max(rgbComponent[commonList[y]], rgbComponent[x]);
                     if(max == rgbComponent[x])
                     {
-                        popularList[y] = x;
+                        commonList[y] = x;
                         break;
                     }
                 }
             }
 
-            const list = popularList.map(
+            const list = commonList.map(
                 (el) => {
                     return rgbToHex(
                         (el & 0xff0000) >> 16,

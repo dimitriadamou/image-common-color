@@ -92,7 +92,7 @@ function CalculateImageDimensions(img, maxWidth, maxHeight) {
     height = Math.round(height / ratio);
     return [width, height];
 }
-function PrimaryColor(file, options) {
+function CommonColor(file, options) {
     var _this = this;
     if (options === void 0) { options = defaultOptions; }
     return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
@@ -131,25 +131,25 @@ function PrimaryColor(file, options) {
                                 rgbComponent[hexShift] = 0;
                             rgbComponent[hexShift]++;
                         }
-                        var popularList = new Array(options.colorChoices);
-                        popularList.fill(0, 0, options.colorChoices);
+                        var commonList = new Array(options.colorChoices);
+                        commonList.fill(0, 0, options.colorChoices);
                         var max = 0;
                         //can definitely sort this better.
                         //will re-write later.
                         for (var x in rgbComponent) {
-                            for (var y in popularList) {
-                                if (!rgbComponent[popularList[y]]) {
-                                    popularList[y] = x;
+                            for (var y in commonList) {
+                                if (!rgbComponent[commonList[y]]) {
+                                    commonList[y] = x;
                                     break;
                                 }
-                                max = Math.max(rgbComponent[popularList[y]], rgbComponent[x]);
+                                max = Math.max(rgbComponent[commonList[y]], rgbComponent[x]);
                                 if (max == rgbComponent[x]) {
-                                    popularList[y] = x;
+                                    commonList[y] = x;
                                     break;
                                 }
                             }
                         }
-                        var list = popularList.map(function (el) {
+                        var list = commonList.map(function (el) {
                             return rgbToHex((el & 0xff0000) >> 16, (el & 0x00ff00) >> 8, (el & 0x0000ff));
                         }).filter(function (el) { return el != "#000000"; });
                         resolve(list);
@@ -172,5 +172,5 @@ function PrimaryColor(file, options) {
     }); });
 }
 
-module.exports = PrimaryColor;
+module.exports = CommonColor;
 //# sourceMappingURL=index.js.map

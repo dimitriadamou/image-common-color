@@ -1,7 +1,7 @@
 {
-  "name": "image-primary-color",
+  "name": "image-common-color",
   "version": "0.1.0",
-  "description": "Library to grab the primary colors from an image with a -+16 tolerance",
+  "description": "Library to grab the common colors from an image.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -11,6 +11,8 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
+    "setup": "yarn && cd example && yarn setup && cd ../ && yarn create-link && yarn start",
+    "create-link": "yarn link && cd example && yarn link 'image-common-color'",
     "start": "yarn build && cd example && yarn start"
   },
   "author": "Dimitri Adamou",

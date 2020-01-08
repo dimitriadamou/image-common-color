@@ -1,4 +1,4 @@
-export interface PrimaryColorInterface {
+export interface CommonColorInterface {
     /**
      * @description Sets the maximum width for ratio-resize for performance gains.
      * @default 600
@@ -15,7 +15,7 @@ export interface PrimaryColorInterface {
      */
     clamp: number;
     /**
-     * @description Limit how many popular colors we want to return.
+     * @description Limit how many common colors we want to return.
      * @default 10
      */
     colorChoices: number;
@@ -30,4 +30,4 @@ export interface PrimaryColorInterface {
      */
     rgbCeil: number;
 }
-export default function PrimaryColor(file: File, options?: PrimaryColorInterface): Promise<string[]>;
+export default function CommonColor(file: File, options?: CommonColorInterface): Promise<string[]>;
