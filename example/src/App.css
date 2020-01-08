@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+}
+
+.grid
+{
+  display: inline-block;
+  font-size: 0.75em;
+  margin: 5px;
+}
+
+.color-box {
+  width: 100px;
+  height: 100px;
+}

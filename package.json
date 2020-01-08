@@ -1,0 +1,26 @@
+{
+  "name": "image-primary-color",
+  "version": "0.1.0",
+  "description": "Library to grab the primary colors from an image with a -+16 tolerance",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw",
+    "start": "yarn build && cd example && yarn start"
+  },
+  "author": "Dimitri Adamou",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^1.29.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "pad-left": "^2.1.0"
+  }
+}
