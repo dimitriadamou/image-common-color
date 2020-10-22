@@ -1,6 +1,6 @@
 {
   "name": "image-common-color",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Library to grab the common colors from an image.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -22,6 +22,9 @@
     "common",
     "primary"
   ],
+  "repository": {
+    "url": "https://github.com/dimitriadamou/image-common-color"
+  },
   "author": "Dimitri Adamou",
   "license": "ISC",
   "devDependencies": {
